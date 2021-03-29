@@ -1,3 +1,5 @@
+using FreeCourse.Services.Discount.Services;
+using FreeCourse.Shared.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
@@ -29,6 +31,9 @@ namespace FreeCourse.Services.Discount
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddHttpContextAccessor();
+            services.AddScoped<ISharedIdentityService, SharedIdentityService>();
+            services.AddScoped<IDiscountService, DiscountService>();
             var requireAuthorizePolicy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
 
             JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Remove("sub");
