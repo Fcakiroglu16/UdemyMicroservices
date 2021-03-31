@@ -16,6 +16,8 @@ namespace FreeCourse.IdentityServer
                new ApiResource("resource_photo_stock"){Scopes={"photo_stock_fullpermission"}},
                   new ApiResource("resource_basket"){Scopes={"basket_fullpermission"}},
                               new ApiResource("resource_discount"){Scopes={"discount_fullpermission"}},
+
+                                          new ApiResource("resource_order"){Scopes={"order_fullpermission"}},
                new ApiResource(IdentityServerConstants.LocalApi.ScopeName)
         };
 
@@ -37,7 +39,7 @@ namespace FreeCourse.IdentityServer
 
                      new ApiScope("basket_fullpermission","Basket API için full erişim"),
                             new ApiScope("discount_fullpermission","Discount API için full erişim"),
-
+                             new ApiScope("order_fullpermission","Order API için full erişim"),
                 new ApiScope(IdentityServerConstants.LocalApi.ScopeName)
             };
 
@@ -59,7 +61,7 @@ namespace FreeCourse.IdentityServer
                     AllowOfflineAccess=true,
                     ClientSecrets= {new Secret("secret".Sha256())},
                     AllowedGrantTypes= GrantTypes.ResourceOwnerPassword,
-                    AllowedScopes={ "basket_fullpermission","discount_fullpermission",  IdentityServerConstants.StandardScopes.Email, IdentityServerConstants.StandardScopes.OpenId,IdentityServerConstants.StandardScopes.Profile, IdentityServerConstants.StandardScopes.OfflineAccess, IdentityServerConstants.LocalApi.ScopeName,"roles" },
+                    AllowedScopes={ "basket_fullpermission","discount_fullpermission", "order_fullpermission", IdentityServerConstants.StandardScopes.Email, IdentityServerConstants.StandardScopes.OpenId,IdentityServerConstants.StandardScopes.Profile, IdentityServerConstants.StandardScopes.OfflineAccess, IdentityServerConstants.LocalApi.ScopeName,"roles" },
                     AccessTokenLifetime=1*60*60,
                     RefreshTokenExpiration=TokenExpiration.Absolute,
                     AbsoluteRefreshTokenLifetime= (int) (DateTime.Now.AddDays(60)- DateTime.Now).TotalSeconds,
