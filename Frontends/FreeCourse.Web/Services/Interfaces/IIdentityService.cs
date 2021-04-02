@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace FreeCourse.Web.Services.Interfaces
 {
-    internal interface IIdentityService
+    public interface IIdentityService
     {
         Task<Response<bool>> SignIn(SigninInput signinInput);
 
