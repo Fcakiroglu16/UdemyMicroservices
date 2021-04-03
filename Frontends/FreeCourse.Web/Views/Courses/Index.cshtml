@@ -9,6 +9,8 @@
         <div class="card">
             <div class="card-body">
                 <h5 class="card-title">Kurslar</h5>
+
+                <a asp-controller="Courses" asp-action="Create" class="btn btn-primary mb-3">Kurs oluştur</a>
                 @if (Model.Any())
                 {
                     <table class="table table-striped table-bordered">
