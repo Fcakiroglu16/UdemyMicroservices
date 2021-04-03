@@ -20,6 +20,7 @@
                                 <th>Kurs isim</th>
                                 <th>Fiyat</th>
                                 <th>Süre</th>
+                                <th>İşlemler</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -30,6 +31,9 @@
                                     <td>@item.Name</td>
                                     <td>@item.Price</td>
                                     <td>@item.Feature.Duration</td>
+                                    <td>
+                                        <a asp-controller="Courses" asp-action="Update" asp-route-id="@item.Id" class="btn btn-success btn-sm">Güncelle</a>
+                                    </td>
                                 </tr>
                             }
                         </tbody>
