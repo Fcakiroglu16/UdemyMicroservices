@@ -25,6 +25,6 @@ namespace FreeCourse.Web.Models.Catalogs
 
         public string CategoryId { get; set; }
 
-        public CatagoryViewModel Category { get; set; }
+        public CategoryViewModel Category { get; set; }
     }
 }

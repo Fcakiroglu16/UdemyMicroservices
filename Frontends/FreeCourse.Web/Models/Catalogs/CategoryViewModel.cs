@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace FreeCourse.Web.Models.Catalogs
 {
-    public class CatagoryViewModel
+    public class CategoryViewModel
     {
         public string Id { get; set; }
 
