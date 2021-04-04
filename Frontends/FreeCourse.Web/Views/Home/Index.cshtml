@@ -1,8 +1,38 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
+    var count = 0;
 }
+@model List<CourseViewModel>
+<h2>Kurslar</h2>
+<hr />
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+@if (Model.Any())
+
+{
+
+    @foreach (var item in Model)
+    {
+        count++;
+        if (count == 1 || (count % 3 == 1))
+        {
+            @Html.Raw("<div class='row row-cols-1 row-cols-md-3 g-4 mb-2' >")
+        }
+        <div class="col">
+            <div class="card">
+                <img src="@item.Picture" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">@item.Name</h5>
+                    <p class="card-text">@item.ShortDescription</p>
+                    <h4 class="text-primary">@item.Price TL</h4>
+                    <a href="#">Detay</a>
+                </div>
+            </div>
+        </div>
+
+        if (count % 3 == 0)
+        {
+            @Html.Raw("</div>")
+        }
+
+    }
+}
