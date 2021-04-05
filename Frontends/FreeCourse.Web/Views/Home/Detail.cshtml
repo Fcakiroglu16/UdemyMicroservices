@@ -11,6 +11,7 @@
             <img src="@Model.StockPictureUrl" class="card-img-top" />
             <div class="card-body">
                 <h5 class="card-title">@Model.Name</h5>
+                <div class="badge bg-primary">Kategori : @Model.Category.Name</div>
                 <p class="card-text"> @Model.Description</p>
             </div>
         </div>
@@ -20,8 +21,8 @@
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title">Fiyat : @Model.Price TL</h4>
-                <div>
-                    <a asp-controller="Basket" asp-action="AddBasketItem" asp-route-courseId="@Model.Id" class="btn btn-primary btn-block">Sepete ekle</a>
+                <div class="d-grid">
+                    <a asp-controller="Basket" asp-action="AddBasketItem" asp-route-courseId="@Model.Id" class="btn btn-primary">Sepete ekle</a>
                 </div>
             </div>
         </div>
