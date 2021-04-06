@@ -14,7 +14,7 @@ namespace FreeCourse.Web.Models.Baskets
 
         public decimal Price { get; set; }
 
-        private decimal? DiscountAppliedPrice { get; set; }
+        private decimal? DiscountAppliedPrice;
 
         public decimal GetCurrentPrice
         {

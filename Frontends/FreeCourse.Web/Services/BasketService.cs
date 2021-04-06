@@ -35,6 +35,7 @@ namespace FreeCourse.Web.Services
             else
             {
                 basket = new BasketViewModel();
+
                 basket.BasketItems.Add(basketItemViewModel);
             }
 
