@@ -42,7 +42,19 @@ namespace FreeCourse.Web.Models.Baskets
 
         public bool HasDiscount
         {
-            get => !string.IsNullOrEmpty(DiscountCode);
+            get => !string.IsNullOrEmpty(DiscountCode) && DiscountRate.HasValue;
+        }
+
+        public void CancelDiscount()
+        {
+            DiscountCode = null;
+            DiscountRate = null;
+        }
+
+        public void ApplyDiscount(string code, int rate)
+        {
+            DiscountCode = code;
+            DiscountRate = rate;
         }
     }
 }
