@@ -62,8 +62,6 @@
 
                         }
 
-
-
                         <div class="input-group mb-3">
                             <input type="text" class="form-control" name="DiscountApplyInput.Code">
                             <button class="btn btn-outline-secondary" type="submit">Uygula</button>
@@ -78,7 +76,8 @@
                             <div class="text-danger">@TempData["discountError"]</div>
                         }
                     </form>
-
+                    <a class="btn btn-success" asp-controller="Order" asp-action="Checkout">Ödeme bilgileri</a>
+                    <a class="btn btn-warning" asp-controller="Home" asp-action="Index">Kursları incelemeye devam et</a>
                 }
                 else
                 {
