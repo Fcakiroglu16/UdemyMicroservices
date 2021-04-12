@@ -5,7 +5,8 @@ services:
     restart: always
     ports:
       - "27017:27017"
-    volumes: catalogdb_volume:/data/db
+    volumes:
+      - catalogdb_volume:/data/db
   basketdb:
     container_name: basketdb
     restart: always
@@ -16,7 +17,8 @@ services:
     restart: always
     ports:
       - "5432:5432"
-    volumes: discount_volume:/var/lib/postgresql/data
+    volumes:
+      - discount_volume:/var/lib/postgresql/data
     environment:
       - POSTGRES_USER=admin
       - POSTGRES_PASSWORD=Password12*
@@ -26,7 +28,8 @@ services:
     restart: always
     ports:
       - "1433:1433"
-    volumes: identitydb_volume:/var/opt/mssql/data
+    volumes:
+      - identitydb_volume:/var/opt/mssql/data
     environment:
       - ACCEPT_EULA=Y
       - SA_PASSWORD=Password12*
@@ -35,7 +38,8 @@ services:
     restart: always
     ports:
       - "1444:1433"
-    volumes: orderdb_volume:/var/opt/mssql/data
+    volumes:
+      - orderdb_volume:/var/opt/mssql/data
     environment:
       - ACCEPT_EULA=Y
       - SA_PASSWORD=Password12*
