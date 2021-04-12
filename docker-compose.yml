@@ -5,7 +5,7 @@ services:
     basketdb:
         image: redis
     discountdb:
-        image: posgres
+        image: postgres
     identitydb:
         image: mcr.microsoft.com/mssql/server
     orderdb:
