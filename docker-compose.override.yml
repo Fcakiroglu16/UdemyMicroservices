@@ -129,3 +129,21 @@ services:
       - IdentityServerURL=http://identityserver.api
     ports:
       - "5000:80"
+  aspnetcoremvc.web:
+    container_name: aspnetcoremvc.web
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - IdentityServerURL=http://identityserver.api
+      - GatewayBaseUri=http://gateway.api
+
+    ports:
+      - "5010:80"
+    depends_on: 
+      - gateway.api
+      - identityserver.api
+      - catalog.api
+      - basket.api
+      - discount.api
+      - order.api
+      - photostock.api
+      - fakepayment.api

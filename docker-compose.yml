@@ -52,6 +52,11 @@ services:
     build:
       context: .
       dockerfile: FreeCourse.Gateway/Dockerfile
+  aspnetcoremvc.web:
+    image: aspnetcoremvc.web_image
+    build:
+      context: .
+      dockerfile: Frontends/FreeCourse.Web/Dockerfile
 
 volumes:
   catalogdb_volume:
