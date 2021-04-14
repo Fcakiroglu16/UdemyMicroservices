@@ -53,8 +53,8 @@ services:
     container_name: catalog.api
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - RabbitMQUrl:rabbitmq
-      - IdentityServerURL:http://identityserver.api:5001
+      - RabbitMQUrl=rabbitmq
+      - IdentityServerURL=http://identityserver.api:5001
       - DatabaseSettings:ConnectionString=mongodb://catalogdb:27017
     ports:
       - "5011:80"
@@ -73,9 +73,9 @@ services:
     container_name: basket.api
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - IdentityServerURL:http://identityserver.api:5001
+      - IdentityServerURL=http://identityserver.api:5001
       - RedisSettings:Port=6379
-      - RedisSettings:Host=  basketdb
+      - RedisSettings:Host=basketdb
     ports:
       - "5013:80"
     depends_on:
@@ -84,7 +84,7 @@ services:
     container_name: photostock.api
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - IdentityServerURL:http://identityserver.api:5001
+      - IdentityServerURL=http://identityserver.api:5001
     ports:
       - "5012:80"
     volumes:
@@ -95,7 +95,7 @@ services:
     container_name: discount.api
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - IdentityServerURL:http://identityserver.api:5001
+      - IdentityServerURL=http://identityserver.api:5001
       - "ConnectionStrings:PostgreSql=User ID=admin; Password=Password12*; Server=discountdb; Port=5432;Database=discountdb;Integrated Security=true;Pooling=true"
     ports:
       - "5014:80"
@@ -105,7 +105,18 @@ services:
     container_name: fakepayment.api
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - IdentityServerURL:http://identityserver.api:5001
-      - RabbitMQUrl:rabbitmq
+      - IdentityServerURL=http://identityserver.api:5001
+      - RabbitMQUrl=rabbitmq
     ports:
       - "5016:80"
+  order.api:
+    container_name: order.api
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - IdentityServerURL=http://identityserver.api:5001
+      - RabbitMQUrl=rabbitmq
+      - "ConnectionStrings:DefaultConnection=Server=orderdb,1444;Database=OrderDb; User=sa; Password=Password12*"
+    ports:
+      - "5015:80"
+    depends_on:
+      - orderdb
