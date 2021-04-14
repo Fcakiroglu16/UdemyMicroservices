@@ -47,6 +47,11 @@ services:
     build:
       context: .
       dockerfile: Services/Order/FreeCourse.Services.Order.API/Dockerfile
+  gateway.api:
+    image: gateway_api_image
+    build:
+      context: .
+      dockerfile: FreeCourse.Gateway/Dockerfile
 
 volumes:
   catalogdb_volume:
