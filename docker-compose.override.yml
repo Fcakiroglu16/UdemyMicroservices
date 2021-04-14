@@ -117,7 +117,7 @@ services:
       - ASPNETCORE_ENVIRONMENT=Development
       - IdentityServerURL=http://identityserver.api
       - RabbitMQUrl=rabbitmq
-      - "ConnectionStrings:DefaultConnection=Server=orderdb,1444;Database=OrderDb; User=sa; Password=Password12*"
+      - "ConnectionStrings:DefaultConnection=Server=orderdb,1433;Database=OrderDb; User=sa; Password=Password12*"
     ports:
       - "5015:80"
     depends_on:
@@ -133,12 +133,12 @@ services:
     container_name: aspnetcoremvc.web
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - IdentityServerURL=http://identityserver.api
-      - GatewayBaseUri=http://gateway.api
+      - ServiceApiSettings:IdentityBaseUri=http://identityserver.api
+      - ServiceApiSettings:GatewayBaseUri=http://gateway.api
 
     ports:
       - "5010:80"
-    depends_on: 
+    depends_on:
       - gateway.api
       - identityserver.api
       - catalog.api
