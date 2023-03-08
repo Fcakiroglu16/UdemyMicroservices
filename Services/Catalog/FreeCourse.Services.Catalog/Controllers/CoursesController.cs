@@ -19,6 +19,8 @@ namespace FreeCourse.Services.Catalog.Controllers
         public CoursesController(ICourseService courseService)
         {
             _courseService = courseService;
+
+            Console.WriteLine("CoursesController created");
         }
 
         [HttpGet]

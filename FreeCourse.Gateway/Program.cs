@@ -1,9 +1,11 @@
+using CacheManager.Core;
 using FreeCourse.Gateway.DelegateHandlers;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Ocelot.Cache.CacheManager;
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
 using Ocelot.Values;
@@ -27,7 +29,18 @@ builder.Services.AddAuthentication().AddJwtBearer("GatewayAuthenticationScheme",
     options.RequireHttpsMetadata = false;
 });
 
-builder.Services.AddOcelot().AddDelegatingHandler<TokenExhangeDelegateHandler>();
+builder.Services.AddOcelot().AddCacheManager(opt =>
+{
+    opt.WithRedisConfiguration("redis",
+                       config =>
+                       {
+                           config.WithAllowAdmin()
+                           .WithDatabase(0)
+                           .WithEndpoint("localhost", 6379);
+                       })
+               .WithJsonSerializer()
+               .WithRedisCacheHandle("redis");
+}).AddDelegatingHandler<TokenExhangeDelegateHandler>();
 
 var app = builder.Build();
 

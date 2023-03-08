@@ -15,6 +15,10 @@
       "AuthenticationOptions": {
         "AuthenticationProviderKey": "GatewayAuthenticationScheme",
         "AllowedScopes": [ "catalog_fullpermission" ]
+      },
+      "FileCacheOptions": {
+        "TtlSeconds": 15,
+        "Region": "catalog"
       }
     },
     {
@@ -106,4 +110,5 @@
   "GlobalConfiguration": {
     "BaseUrl": "http://localhost:5000"
   }
+
 }
