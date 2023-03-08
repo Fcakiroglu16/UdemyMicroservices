@@ -18,7 +18,12 @@ namespace FreeCourse.Services.Basket.Services
         {
             _host = host;
             _port = port;
+
+
+           
         }
+
+       
 
         public void Connect() => _ConnectionMultiplexer = ConnectionMultiplexer.Connect($"{_host}:{_port}");
 

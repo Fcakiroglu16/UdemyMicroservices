@@ -1,10 +1,14 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
+#nullable disable
+
 namespace FreeCourse.Services.Order.Infrastructure.Migrations
 {
-    public partial class initial : Migration
+    /// <inheritdoc />
+    public partial class check : Migration
     {
+        /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.EnsureSchema(
@@ -51,8 +55,7 @@ namespace FreeCourse.Services.Order.Infrastructure.Migrations
                         column: x => x.OrderId,
                         principalSchema: "ordering",
                         principalTable: "Orders",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateIndex(
@@ -62,6 +65,7 @@ namespace FreeCourse.Services.Order.Infrastructure.Migrations
                 column: "OrderId");
         }
 
+        /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
