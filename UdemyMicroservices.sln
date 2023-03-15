@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31025.194
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33209.295
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{43A66449-11E8-49F1-9A35-540A1D141936}"
 EndProject
@@ -48,15 +48,19 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FreeCourse.Services.Order.I
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FakePayment", "FakePayment", "{D04E7EFA-3C43-42A2-98F1-035CD8BEE685}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FreeCourse.Services.FakePayment", "Services\FakePayment\FreeCourse.Services.FakePayment\FreeCourse.Services.FakePayment.csproj", "{02F17F8A-A1C6-4DF9-961F-845CC2C45839}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FreeCourse.Services.FakePayment", "Services\FakePayment\FreeCourse.Services.FakePayment\FreeCourse.Services.FakePayment.csproj", "{02F17F8A-A1C6-4DF9-961F-845CC2C45839}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Gateways", "Gateways", "{AEB85377-5137-419F-B0FC-9BE676A3993B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FreeCourse.Gateway", "FreeCourse.Gateway\FreeCourse.Gateway.csproj", "{B6222EA7-9110-407F-8BE8-9A7E58E57B86}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FreeCourse.Gateway", "FreeCourse.Gateway\FreeCourse.Gateway.csproj", "{B6222EA7-9110-407F-8BE8-9A7E58E57B86}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Frontends", "Frontends", "{A0611811-F0A4-41F7-84EA-181C084955AA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FreeCourse.Web", "Frontends\FreeCourse.Web\FreeCourse.Web.csproj", "{6E1012DF-8FF1-40E4-B7C7-64C77750743F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FreeCourse.Web", "Frontends\FreeCourse.Web\FreeCourse.Web.csproj", "{6E1012DF-8FF1-40E4-B7C7-64C77750743F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExampleReference.APı", "ExampleReference.APı\ExampleReference.APı.csproj", "{5F5A6726-B972-4862-AC54-E19FF359DE8B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExampleReferenceWeb", "ExampleReferenceWeb\ExampleReferenceWeb.csproj", "{ED79A3EE-B1A5-434B-9264-2FF092432045}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -120,6 +124,14 @@ Global
 		{6E1012DF-8FF1-40E4-B7C7-64C77750743F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6E1012DF-8FF1-40E4-B7C7-64C77750743F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6E1012DF-8FF1-40E4-B7C7-64C77750743F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F5A6726-B972-4862-AC54-E19FF359DE8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F5A6726-B972-4862-AC54-E19FF359DE8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F5A6726-B972-4862-AC54-E19FF359DE8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F5A6726-B972-4862-AC54-E19FF359DE8B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED79A3EE-B1A5-434B-9264-2FF092432045}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED79A3EE-B1A5-434B-9264-2FF092432045}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED79A3EE-B1A5-434B-9264-2FF092432045}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED79A3EE-B1A5-434B-9264-2FF092432045}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

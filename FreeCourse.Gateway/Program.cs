@@ -1,30 +1,38 @@
-using Microsoft.AspNetCore.Hosting;
+using FreeCourse.Gateway.DelegateHandlers;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Microsoft.Extensions.DependencyInjection;
+using Ocelot.DependencyInjection;
+using Ocelot.Middleware;
+using Ocelot.Values;
 
-namespace FreeCourse.Gateway
+var builder = WebApplication.CreateBuilder(args);
+
+builder.Configuration.AddJsonFile($"configuration.{builder.Environment.EnvironmentName.ToLower()}.json");
+
+
+builder.Services.AddHttpClient<TokenExhangeDelegateHandler>();
+builder.Services.AddAuthentication().AddJwtBearer("GatewayAuthenticationScheme", options =>
 {
-    public class Program
-    {
-        public static void Main(string[] args)
-        {
-            CreateHostBuilder(args).Build().Run();
-        }
+    options.Authority = builder.Configuration["IdentityServerURL"];
+    options.Audience = "resource_gateway";
+    options.RequireHttpsMetadata = false;
+});
 
-        public static IHostBuilder CreateHostBuilder(string[] args) =>
+builder.Services.AddOcelot().AddDelegatingHandler<TokenExhangeDelegateHandler>();
 
-            Host.CreateDefaultBuilder(args).ConfigureAppConfiguration((hostingContext, config) =>
-            {
-                config.AddJsonFile($"configuration.{hostingContext.HostingEnvironment.EnvironmentName.ToLower()}.json").AddEnvironmentVariables();
-            })
-                .ConfigureWebHostDefaults(webBuilder =>
-                {
-                    webBuilder.UseStartup<Startup>();
-                });
-    }
-}
+var app = builder.Build();
+
+// Configure the HTTP request pipeline.
+
+
+app.UseAuthorization();
+app.UseDeveloperExceptionPage();
+app.MapControllers();
+await app.UseOcelot();
+app.Run();
+
+
+
+
+
